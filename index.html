@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="todo">
+	<head>
+		<link rel="stylesheet" type="text/css" href="bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="style.css"/>
+		<script type="text/javascript" src="angular.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+		<script type="text/javascript" src="app.js"></script>
+		<script type="text/javascript" src="jquery.min.js"></script>
+		<link href='http://fonts.googleapis.com/css?family=Waiting+for+the+Sunrise' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Archivo+Black' rel='stylesheet' type='text/css'>
+	</head>
+	<body ng-controller="TodoController">
+		<h1 class="heading"> You have <span id="left">{{totalTodos()}}</span> things left to do!</h1>
+		<input type="text" ng-model="newTodo" class="form-control" placeholder="what needs doing?">
+		<button type="submit" ng-click="addTodo()" class="btn btn-default">Add</button>
+		<h4>Incomplete:</h4>
+		<li ng-repeat="todo in todos">
+			<input ng-model="todo.isDone" type="checkbox" ng-click="deleteTodo($index)">
+			{{todo.taskName}}
+		
+		</li>
+	</body>
+</html>
